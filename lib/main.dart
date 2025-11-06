@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_placeholder/config/config.dart';
+
+Future<void> main() async {
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    await dotenv.load();
+
+    setupDependencies();
+    runApp(const MyApp());
+  } catch (e) {
+    // ignore: avoid_print
+    print('Error during app initialization: $e');
+  }
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) => MaterialApp.router(
+    title: 'Material App',
+    debugShowCheckedModeBanner: false,
+    theme: AppTheme().theme(),
+    routerConfig: appRouter,
+  );
+}
