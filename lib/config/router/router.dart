@@ -1,4 +1,4 @@
-import 'package:flutter_placeholder/screens/screens.dart';
+import 'package:flutter_placeholder/presentation/presentation.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: _buildRoutes());
